@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Link} from "react-router-dom";
 import "./top-fold.css";
 import { useDispatch } from "react-redux";
 import { searchExpense } from "../../redux/actions/expenses";

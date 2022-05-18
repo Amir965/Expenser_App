@@ -2,7 +2,7 @@ import Home from "./pages/home/index";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AddExpense from "./pages/add-expense/index.js";
+import AddExpense from "./pages/add-expense";
 
 const App = () => {
   return (
