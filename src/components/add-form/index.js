@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { categories } from "../../constants/add-expense";
-import { addExpense } from "../../redux/action/expenses";
+import "react-toastify/dist/ReactToastify.css";
 import "./add-form.css";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { addExpense } from "../../redux/actions/expenses";
 import SuccessModal from "./success-modal";
+
 const AddForm = () => {
-  const cat = categories;
   const [categoryOpen, setCategoryOpen] = useState(false);
+  const cat = categories;
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [category, setCategory] = useState();
   const dispatch = useDispatch();
-
+  const [modalOpen, setModalOpen] = useState(false);
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
-
   const handleAmount = (e) => {
     const val = parseFloat(e.target.value);
     if (isNaN(val)) {
@@ -27,14 +26,15 @@ const AddForm = () => {
     }
     setAmount(val);
   };
-
   const handleCategory = (category) => {
     setCategory(category);
     setCategoryOpen(false);
+    console.log(category);
   };
+
   const handleSubmit = () => {
     if (title === "" || amount === "" || !category) {
-      const notify = () => toast("Please enter valid data");
+      const notify = () => toast("Please enter complete data");
       notify();
       return;
     }
@@ -45,11 +45,12 @@ const AddForm = () => {
       createdAt: new Date(),
     };
     dispatch(addExpense(data));
-    setModalOpen(true);
+    setModalOpen(!modalOpen);
   };
 
   return (
     <div className="add-form">
+      <SuccessModal modalOpen={modalOpen} />
       <ToastContainer
         position="bottom-left"
         autoClose={1500}
@@ -57,12 +58,10 @@ const AddForm = () => {
         newestOnTop={false}
         closeOnClick
       />
-      <SuccessModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       <div className="form-item">
         <label>Title</label>
         <input
-          type="text"
-          placeholder="Give a need to your expenditure"
+          placeholder="Give a name to your expenditure"
           value={title}
           onChange={(e) => handleTitle(e)}
         />
@@ -70,11 +69,10 @@ const AddForm = () => {
       <div className="form-item">
         <label>Amount ₹</label>
         <input
-          type="text"
           placeholder="Enter Amount"
-          value={amount}
-          onChange={(e) => handleAmount(e)}
           className="amount-input"
+          onChange={(e) => handleAmount(e)}
+          value={amount}
         />
       </div>
       <div className="category-container-parent">
@@ -83,8 +81,8 @@ const AddForm = () => {
             className="category-dropdown"
             onClick={() => setCategoryOpen(!categoryOpen)}
           >
-            <label>{category ? category.title : "category"}</label>
-            <i className="fi fi-rr-angle-down"></i>
+            <label>{category ? category.title : "Category"}</label>
+            <i class="fi-rr-angle-down"></i>
           </div>
           {categoryOpen && (
             <div className="category-container">
@@ -106,7 +104,7 @@ const AddForm = () => {
       <div className="form-add-button">
         <div onClick={handleSubmit}>
           <label>Add</label>
-          <i className="fi fi-rr-paper-plane"></i>
+          <i class="fi-rr-paper-plane"></i>
         </div>
       </div>
     </div>

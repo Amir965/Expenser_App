@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./top-fold.css";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { searchExpense } from "../../redux/action/expenses";
-import "./topfold.css";
+import { searchExpense } from "../../redux/actions/expenses";
 const TopFold = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
@@ -15,18 +15,17 @@ const TopFold = () => {
       {window.location.pathname === "/" ? (
         <div className="home-topfold">
           <div className="searchbar">
-            <i className="fi fi-rr-search"></i>
+            <i class="fi-rr-search"></i>
             <input
-              type="text"
+              placeholder="Search for expenses"
               value={query}
-              placeholder="search for expenses"
               onChange={(e) => handleQuery(e)}
             />
           </div>
           <Link to="/add-expense">
             <div className="add-button">
-              <i className="fi fi-rr-add"></i>
-              <label htmlFor="">Add</label>
+              <i class="fi-rr-add"></i>
+              <label>Add</label>
             </div>
           </Link>
         </div>
@@ -34,14 +33,14 @@ const TopFold = () => {
         <div className="add-topfold">
           <Link to="/">
             <div className="add-topfold-button">
-              <i class="fi fi-rr-angle-left"></i>
-              <label htmlFor="">Back</label>
+              <i class="fi-rr-angle-left"></i>
+              <label>Back</label>
             </div>
           </Link>
           <Link to="/">
             <div className="add-topfold-button">
-              <i className="fi fi-rr-cross-circle"></i>
-              <label htmlFor="">Cancel</label>
+              <i class="fi-rr-cross-circle"></i>
+              <label>Cancel</label>
             </div>
           </Link>
         </div>

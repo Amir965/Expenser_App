@@ -27,17 +27,18 @@ export const expenseReducer = (state = initialState, action) => {
       return {
         ...state,
         expenseList: [...state.expenseList, action.data],
+        query: "",
       };
     }
     case DELETE_EXPENSE: {
       const { data } = action;
-      const updateList = state.expenseList.filter(
+      const updatedList = state.expenseList.filter(
         (item) => item.createdAt !== data.createdAt
       );
-      localStorage.setItem("expense-list", JSON.stringify(updateList));
+      localStorage.setItem("expense-list", JSON.stringify(updatedList));
       return {
         ...state,
-        expenseList: updateList,
+        expenseList: updatedList,
       };
     }
     case SEARCH_EXPENSE: {
@@ -48,6 +49,8 @@ export const expenseReducer = (state = initialState, action) => {
       };
     }
     default:
-      return state;
+      return {
+        ...state,
+      };
   }
 };

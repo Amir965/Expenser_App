@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
 import "./success-modal.css";
 const SuccessModal = ({ modalOpen, setModalOpen }) => {
   const customStyles = {
@@ -18,7 +18,7 @@ const SuccessModal = ({ modalOpen, setModalOpen }) => {
   return (
     <Modal isOpen={modalOpen} style={customStyles}>
       <div className="modal-inner">
-        <label>Expense Added Successfully</label>
+        <label>Expense Added Successfully!</label>
         <img
           src={require("../../assets/images/added-image.png").default}
           alt="Expense Added"
@@ -26,7 +26,7 @@ const SuccessModal = ({ modalOpen, setModalOpen }) => {
         />
         <Link to="/">
           <div className="take-home-button">
-            <i class="fi fi-rr-home"></i>
+            <i class="fi-rr-home"></i>
             Home
           </div>
         </Link>

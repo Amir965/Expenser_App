@@ -1,20 +1,26 @@
-import React from 'react'
-import "./header.css"
+import React from "react";
+import "./header.css";
 const Header = () => {
   return (
     <div className="header-container">
       <div className="header">
         <div className="header-logo">
-          Xpensr <i className="fi fi-rr-credit-card"></i>
+          Xpensr
+          <i class="fi-rr-credit-card" />.
         </div>
         <div className="header-button">
-          <a href='https://www.github.com/Amir965' target="_blank" rel="noopener noreferrer">
-            <i className="devicon-github-original"></i>Star
+          <a
+            href="https://github.com/shuvamk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="devicon-github-original colored" />
+            Star
           </a>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Header;
