@@ -20,7 +20,7 @@ const SuccessModal = ({ modalOpen, setModalOpen }) => {
       <div className="modal-inner">
         <label>Expense Added Successfully!</label>
         <img
-          src={require("../../assets/images/added-image.png").default}
+          src={require("../../assets/images/added-image.png")}
           alt="Expense Added"
           className="added-image"
         />

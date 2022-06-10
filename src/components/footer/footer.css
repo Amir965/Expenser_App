@@ -1,9 +1,15 @@
-footer {
-  width: 100%;
+.footer {
+  /* width: 100%;
   position: fixed;
-  bottom: 0;
+  bottom: 0p;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 6px;
+  padding-bottom: 6px; */
+  text-align: center;
+  margin-top: 80px;
+}
+
+span{
+  color: rgb(226, 27, 109);
 }

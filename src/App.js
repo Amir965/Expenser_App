@@ -11,6 +11,7 @@ const App = () => {
       console.log("Longitude is :", position.coords.longitude);
     });
   });
+
   return (
     <BrowserRouter>
       <Header />

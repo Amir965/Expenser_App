@@ -24,7 +24,7 @@ const ExpenseList = () => {
       ) : (
         <div className="empty-state">
           <img
-            src={require("../../assets/images/empty.png").default}
+            src={require("../../assets/images/empty.png")}
             alt="No Expenses"
             className="empty-image"
           />

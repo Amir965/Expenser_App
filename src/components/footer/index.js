@@ -1,7 +1,12 @@
 import React from "react";
 import "./footer.css";
 const Footer = () => {
-  return <footer>Made with 🔥 by Overreacted</footer>;
+  return (
+    <div className="footer">
+      &copy; {new Date().getFullYear()}. <span>Md Amir Alam</span>. All Rights
+      Reserved.
+    </div>
+  );
 };
 
 export default Footer;
